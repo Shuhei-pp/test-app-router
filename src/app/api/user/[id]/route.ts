@@ -1,24 +1,6 @@
+import { USERS_DATA } from "@/constants";
 import { NextResponse } from "next/server";
 import { Context } from "vm";
-
-export type User = {
-  name: string;
-  age: number;
-};
-const USERS_DATA: User[] = [
-  {
-    name: "kota",
-    age: 22,
-  },
-  {
-    name: "haru",
-    age: 23,
-  },
-  {
-    name: "akito",
-    age: 21,
-  },
-];
 
 export async function GET(
   request: Request,
