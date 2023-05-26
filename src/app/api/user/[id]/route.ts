@@ -1,6 +1,5 @@
 import { USERS_DATA } from "@/constants";
 import { NextResponse } from "next/server";
-import { Context } from "vm";
 
 export async function GET(
   request: Request,

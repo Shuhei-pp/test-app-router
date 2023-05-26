@@ -1,11 +1,10 @@
-"use client";
 import { User } from "@/types";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { use } from "react";
 
 export default function Page({ params }: { params: { id: string } }) {
-  const [user, setUser] = useState<User>();
-  const url = `http://localhost:3000/api/user/${params.id}`;
+  const res = use(getUser(params.id));
+  const user = res.user;
 
   return (
     <>
@@ -15,3 +14,12 @@ export default function Page({ params }: { params: { id: string } }) {
     </>
   );
 }
+
+const getUser: (id: string) => Promise<{ user: User | null }> = async (
+  id: string
+) => {
+  const res = await axios
+    .get(`http://localhost:3000/api/user/${id}`)
+    .then((res) => res);
+  return res.data;
+};
