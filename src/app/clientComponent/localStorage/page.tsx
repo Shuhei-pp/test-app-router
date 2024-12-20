@@ -9,7 +9,6 @@ export default function Page() {
 	};
 
 	sessionStorage.setItem("urla", JSON.stringify(url));
-	//aaaa
 
 	return (
 		<>
